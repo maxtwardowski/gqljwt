@@ -1,18 +1,12 @@
 import express from 'express'
-const bodyParser = require('body-parser')
-const { graphqlExpress } = require('apollo-server-express')
-const schema = require('./schema')
-const SECRETKEY = require('./utils')
-const jwt = require('express-jwt')
+import bodyParser from 'body-parser'
+import { graphqlExpress } from 'apollo-server-express'
+import schema from './schema'
+import { authmw } from './utils'
 
 const app = express()
 
 const PORT = 3000
-
-const authmw = jwt({
-  secret: SECRETKEY,
-  credentialsRequired: false
-})
 
 app.use('/api', bodyParser.json(), authmw, graphqlExpress(req => ({
   schema,

@@ -1,6 +1,6 @@
-const jsonwebtoken = require('jsonwebtoken')
-const usersData = require('./dummydb')
-const SECRETKEY = require('./utils')
+import jsonwebtoken from 'jsonwebtoken'
+import usersData from './dummydb'
+import { SECRETKEY } from './utils'
 
 const resolvers = {
   Query: {

@@ -1,3 +1,8 @@
-const SECRETKEY = 'supersecretkey'
+import jwt from 'express-jwt'
 
-module.exports = SECRETKEY
+export const SECRETKEY = 'supersecretkey'
+
+export const authmw = jwt({
+  secret: SECRETKEY,
+  credentialsRequired: false
+})

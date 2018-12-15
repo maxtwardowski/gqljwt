@@ -1,4 +1,4 @@
-const usersData = [
+export default [
   {
     id: 1,
     username: 'max',
@@ -15,5 +15,3 @@ const usersData = [
     password: 'evelynn'
   }
 ]
-
-module.exports = usersData

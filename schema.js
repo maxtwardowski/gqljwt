@@ -1,5 +1,5 @@
-const { makeExecutableSchema } = require('graphql-tools')
-const resolvers = require('./resolvers')
+import { makeExecutableSchema } from 'graphql-tools'
+import resolvers from './resolvers'
 
 // Define our schema using the GraphQL schema language
 const typeDefs = `
@@ -18,4 +18,4 @@ const typeDefs = `
     login (username: String!, password: String!): String
   }
 `
-module.exports = makeExecutableSchema({ typeDefs, resolvers })
+export default makeExecutableSchema({ typeDefs, resolvers })
