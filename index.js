@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 const bodyParser = require('body-parser')
 const { graphqlExpress } = require('apollo-server-express')
 const schema = require('./schema')

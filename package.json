@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js --exec babel-node"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,9 @@
     "jsonwebtoken": "^8.1.1"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "*",
+    "rimraf": "*"
   }
 }
