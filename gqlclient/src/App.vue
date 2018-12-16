@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <login />
+    <status />
+    <navbar />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Login from './components/Login'
+import Status from './components/Status'
+import Navbar from './components/Navbar'
 
 export default {
   name: 'app',
   components: {
-    Login
+    Status,
+    Navbar
   }
 }
 </script>

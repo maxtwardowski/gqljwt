@@ -1,12 +1,12 @@
 <template>
   <div>
     <h1>Login</h1>
-    <form @submit="change">
+    <form @submit="handleSubmit">
       <p><input type="text" v-model="username" autocomplete="on" placeholder="Username" /></p>
       <p><input type="password" v-model="password" autocomplete="on" placeholder="Password" /></p>
+      <p v-if="error" style="color:red">Invalid credentials provided</p>
       <p><button>Login</button></p>
     </form>
-    {{ lol }}
   </div>
 </template>
 
@@ -19,18 +19,28 @@ export default {
     return {
       username: '',
       password: '',
-      lol: 'pre'
+      error: undefined
     }
   },
-  apollo: {
-    test: gql`{
-      test
-    }`
-  },
   methods: {
-    change () {
-      this.$apollo.query(test)
-      this.test = this.lol
+    handleSubmit (event) {
+      if (event)
+        event.preventDefault()
+      this.$apollo.mutate({
+        mutation: gql`mutation ($username: String!, $password: String!) {
+          login(username: $username, password: $password)
+        }`,
+        variables: {
+          username: this.username,
+          password: this.password
+        }
+      }).then(res => {
+        this.error = undefined
+        const token = res.data.login
+        localStorage.setItem('token', token)
+      }).catch(err => {
+        this.error = err
+      })
     }
   }
 }
