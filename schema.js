@@ -12,6 +12,7 @@ const typeDefs = `
     me: User
     users: [User]
     user(id: Int!): User
+    test: String
   }
 
   type Mutation {

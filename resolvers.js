@@ -4,6 +4,10 @@ import { SECRETKEY } from './utils'
 
 const resolvers = {
   Query: {
+    async test (_, args) {
+      return "testin flexin'"
+    },
+
     async me (_, args, { user }) {
       if (!user) {
         throw new Error('You are not authenticated!')
