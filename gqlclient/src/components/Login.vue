@@ -38,6 +38,8 @@ export default {
         this.error = undefined
         const token = res.data.login
         localStorage.setItem('token', token)
+        this.$router.push('/userfetcher')
+        this.$router.go()
       }).catch(err => {
         this.error = err
       })
